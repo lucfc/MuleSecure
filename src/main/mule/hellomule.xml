@@ -8,6 +8,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="hellomuleFlow" doc:id="d1125e7e-3a20-481f-a3b1-a0959c08d7f2" >
 		<http:listener doc:name="Listener" doc:id="6749c972-203d-499f-b251-40c43c88d267" config-ref="HTTP_Listener_config" path="/hellomule"/>
 		<set-payload value="Hello Mule" doc:name="Set Payload" doc:id="6306d4f6-28e0-44d7-805e-fcb3078d6d68" />
-		<logger level="INFO" doc:name="Logger" doc:id="d415f521-5120-401d-b6e0-8aed4796c581" message='#[output application/java &#10;&#10;--- &#10;&#10;{&#10;	"userName": &#10;}]'/>
+		<logger level="INFO" doc:name="Logger" doc:id="d415f521-5120-401d-b6e0-8aed4796c581" message='#[output application/java&#10;---&#10;"Username: " ++ Mule::p("secure::example.username")&#10;++ "-" ++ "Password: "++ Mule::p("secure::example.password")]'/>
 	</flow>
 </mule>
